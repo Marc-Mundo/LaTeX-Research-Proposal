@@ -111,21 +111,36 @@
   \fancyhead[R]{\fontsize{10}{12}\selectfont \textbf{Research Proposal} \\ NWI-BM-RESPROP}
   \fancyfoot[L]{\fontsize{8}{10}\selectfont \textcolor{gray}{Radboud University}}
   \fancyfoot[C]{\fontsize{8}{10}\selectfont \textcolor{gray}{\thepage\ of~\pageref{LastPage}}}
-  \fancyfoot[R]{\fontsize{8}{10}\selectfont \textcolor{gray}{June 2024}}
+  \fancyfoot[R]{\fontsize{8}{10}\selectfont \textcolor{gray}{July 2024}}
   \renewcommand{\footrulewidth}{0.3pt}
   \renewcommand{\footrule}{\blackfootrule}
 }
 
 \fancypagestyle{rest}{
   \fancyhf{}
-  \fancyhead[L]{\fontsize{8}{10}\selectfont \textcolor{gray}{Systematic Review}}
-  \fancyhead[R]{\fontsize{8}{10}\selectfont \textcolor{gray}{State-of-the-Art in Visual Cortical Prostheses}}
+  \fancyhead[L]{\fontsize{8}{10}\selectfont \textcolor{gray}{Research Proposal}}
+  \fancyhead[R]{\fontsize{8}{10}\selectfont \textcolor{gray}{Visual Cortical Prostheses: Bridging Technology, AI and Human Vision for the Future}}
   \fancyfoot[L]{\fontsize{8}{10}\selectfont \textcolor{gray}{Radboud University}}
   \fancyfoot[C]{\fontsize{8}{10}\selectfont \textcolor{gray}{\thepage\ of~\pageref{LastPage}}}
-  \fancyfoot[R]{\fontsize{8}{10}\selectfont \textcolor{gray}{June 2024}}
+  \fancyfoot[R]{\fontsize{8}{10}\selectfont \textcolor{gray}{July 2024}}
   \renewcommand{\footrulewidth}{0.3pt}
   \renewcommand{\footrule}{\grayfootrule}
 }
+
+% Redefine the abstract environment to use "Summary" instead of "Abstract"
+\makeatletter
+\renewenvironment{abstract}{%
+    \if@twocolumn%
+      \section*{\abstractname}%
+    \else
+      \begin{center}%
+        {\bfseries \large\abstractname\vspace{-.5em}\vspace{\z@}}%
+      \end{center}%
+      \quotation\small % Ensures the text is smaller
+    \fi}
+    {\if@twocolumn\else\endquotation\fi}%
+\renewcommand{\abstractname}{Summary}
+\makeatother
 
 % Document
 \begin{document}
@@ -143,7 +158,7 @@
     \noindent Visual cortical prostheses represent a revolutionary technology
     within the field of neuro\-prosthetics, aimed at restoring vision for
     individuals with visual impairments through direct neural interfaces. This
-    proposal... ABSTRACT WORK IN PROGRESS!!!
+    proposal\ldots ABSTRACT WORK IN PROGRESS!!!
 \end{abstract}
 \textbf{Keywords:} Visual cortical prostheses, neuroprosthetics, artificial intelligence, phosphene patterns, real-time image processing
 \vspace{1cm}
@@ -151,9 +166,57 @@
 % Ensure first page style is applied until the first page is full
 \thispagestyle{firstpage}
 \section*{Introduction}\label{sec:intro}
+Visual cortical prostheses represent a revolutionary technology within the field
+of neuroprosthetics, aimed at restoring vision for individuals with visual
+impairments through direct neural interfaces. These devices function by
+converting external visual information into neural signals that the brain can
+interpret, thereby bypassing damaged visual pathways. A key component of these
+prostheses is the generation of phosphenes—perceived spots of light produced by
+electrical stimulation of the visual cortex. The challenge lies in organizing
+these phosphenes into coherent visual patterns that the brain can understand.
+The development and optimization of visual cortical prostheses necessitate a
+multidisciplinary approach, combining insights from neuroscience, biomedical
+engineering, and artificial intelligence (AI).
+
+In the past 10 years there have been significant advancements that have
+contributed to the development of complex visual prosthetic devices, starting
+with retinal and optic nerve implants, moving towards direct neural interfacing
+in the visual
+cortex~\parencite{deruytervansteveninckRealworldIndoorMobility2022}.
 
 \pagestyle{rest} % Apply rest page style from here
 
+\section*{Research}\label{sec:research}
+\subsection*{Objective}\label{subsec:objective}
+This study aims to develop a novel approach to generating phosphene patterns
+in a way that dynamics environments can be visualized in real-time. These
+systems as of yet, do not exist and are crucial for the development of visual
+aid systems that can adapt to more complex and real-world scenarios. If
+successful, these improved prosthetic systems hold potential of increasing
+the blind user's experience dramatically.
+
+\subsection*{Approach}\label{subsec:approach}
+Explain the experiments and why they are important. Concretely explain how they
+will be performed.
+
+\todo[inline]{Explain the three phases of the study.}
+
+\section*{Innovation}\label{sec:innovation}
+Explain how the research is innovative and how it will contribute to the field.
+Briefly go over the cutting-edge technology involved in the study. Maybe go
+over the caveats and limitations of previous work and how this study will find
+solutions.
+
+\section*{Future Impact}\label{sec:impact}
+Explain the main goal of the study and why future research will be beneficial.
+
+\section*{Timetable}\label{sec:timetable}
+The Gannt-chart goes here with a brief explanation of the different phases.
+
 \printbibliography%
+
+\section*{Rebuttal}\label{sec:rebuttal}
+After the first review of the draft, the proposal was revised to address the
+reviewers' comments. The main changes will be listed below:
 
 \end{document}
