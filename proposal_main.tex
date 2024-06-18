@@ -1,0 +1,159 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{abstract}
+\usepackage{titlesec}
+\usepackage[backend=biber,style=apa]{biblatex}% Changed style to apa
+\usepackage[hidelinks]{hyperref}
+\PassOptionsToPackage{hyphens}{url} % Pass hyphens option to url package via hyperref
+\usepackage{fancyhdr} % For custom headers and footers
+\usepackage{lastpage} % For page numbering in the footer
+\usepackage{xcolor} % For text color
+\usepackage{tabularx} % Tabularx package for better table formatting
+\usepackage{longtable}% Long table package for tables that span multiple pages
+
+% Set marginparwidth for todonotes
+\setlength{\marginparwidth}{2cm} % Adjust the marginparwidth
+\usepackage{todonotes} % TODOs
+\usepackage{tcolorbox} % For colored boxes
+\usepackage{caption} % For custom captions
+
+% Fonts and typography
+\usepackage{helvet} % Load the Helvetica font package
+\renewcommand{\familydefault}{\sfdefault} % Set sans-serif as the default font family
+
+% Page setup
+\geometry{margin=1in}
+\setstretch{1.2}
+\titleformat{\section}{\bfseries\Large}{\thesection}{1em}{}
+\titleformat{\subsection}{\bfseries\large}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\bfseries\normalsize}{\thesubsubsection}{1em}{}
+
+% Add bibliography file
+\addbibresource{references.bib}
+
+% Customization to remove url date and format URLs and DOIs
+\AtEveryBibitem{%
+  \ifentrytype{online}{%
+    \clearfield{urldate}%
+    \clearfield{note}%
+  }{}%
+  \ifentrytype{article}{%
+    \clearfield{urldate}%
+  }{}%
+}
+
+\renewbibmacro*{doi+eprint+url}{%
+  \printfield{doi}%
+  \newunit\newblock%
+  \iffieldundef{doi}{%
+    \usebibmacro{eprint}%
+    \newunit\newblock%
+    \usebibmacro{url+urldate}}%
+    {}%
+}
+
+% Customize the caption format
+\captionsetup[figure]{
+    labelfont=bf,           % Bold font for the label
+    labelsep=space           % Use a space as the separator
+}
+\captionsetup[table]{
+    labelfont=bf,           % Bold font for the label
+    labelsep=space           % Use a space as the separator
+}
+
+% Change font size of bibliography entries
+\renewcommand{\bibfont}{\fontsize{7pt}{9pt}\selectfont}% Set font size to 7pt, maybe too small. Change to 8pt if needed. Also adjust actual text size?
+
+% Title
+\title{Visual Cortical Prostheses: Bridging Technology, AI and Human Vision for the Future}
+\author{
+  Marc J. Posthuma\\
+  Student Number: 4413105\\
+  \texttt{marc.posthuma@ru.nl}\\
+  \\
+  Radboud University\\
+  Supervisor: dr.\ F.\ Zeldenrust\\
+  Department of Neurophysics, Donders Centre for Neuroscience
+}
+\date{\today}
+
+% Adjust page geometry to balance header and footer
+\geometry{
+  a4paper,
+  left=20mm,
+  right=20mm,
+  top=30mm,
+  bottom=30mm,
+  headheight=60.50554pt, % Set the head height
+  headsep=10pt, % Space between header and text
+  footskip=30pt % Space between text and footer
+}
+
+% Custom footrule commands
+\newcommand{\blackfootrule}{%
+  \color{black}\makebox[\headwidth]{\rule[0.5ex]{\headwidth}{0.3pt}}%
+}
+
+\newcommand{\grayfootrule}{%
+  \color{gray}\makebox[\headwidth]{\rule[0.5ex]{\headwidth}{0.3pt}}%
+}
+
+% Define fancyhdr styles
+\fancypagestyle{firstpage}{
+  \fancyhf{}
+  \fancyhead[L]{\includegraphics[width=5cm, keepaspectratio]{imgs/RU_logo_NL_cropped.png}}
+  \fancyhead[R]{\fontsize{10}{12}\selectfont \textbf{Research Proposal} \\ NWI-BM-RESPROP}
+  \fancyfoot[L]{\fontsize{8}{10}\selectfont \textcolor{gray}{Radboud University}}
+  \fancyfoot[C]{\fontsize{8}{10}\selectfont \textcolor{gray}{\thepage\ of~\pageref{LastPage}}}
+  \fancyfoot[R]{\fontsize{8}{10}\selectfont \textcolor{gray}{June 2024}}
+  \renewcommand{\footrulewidth}{0.3pt}
+  \renewcommand{\footrule}{\blackfootrule}
+}
+
+\fancypagestyle{rest}{
+  \fancyhf{}
+  \fancyhead[L]{\fontsize{8}{10}\selectfont \textcolor{gray}{Systematic Review}}
+  \fancyhead[R]{\fontsize{8}{10}\selectfont \textcolor{gray}{State-of-the-Art in Visual Cortical Prostheses}}
+  \fancyfoot[L]{\fontsize{8}{10}\selectfont \textcolor{gray}{Radboud University}}
+  \fancyfoot[C]{\fontsize{8}{10}\selectfont \textcolor{gray}{\thepage\ of~\pageref{LastPage}}}
+  \fancyfoot[R]{\fontsize{8}{10}\selectfont \textcolor{gray}{June 2024}}
+  \renewcommand{\footrulewidth}{0.3pt}
+  \renewcommand{\footrule}{\grayfootrule}
+}
+
+% Document
+\begin{document}
+
+\pagestyle{plain}% Default plain page style for the list of TODOs
+\listoftodos% Remove this line before submission
+\clearpage%To make sure the todo list is on a separate page without fancyhdr
+
+\newpage% To make sure the todo list is on a separate page without fancyhdr
+
+% Title and abstract
+\maketitle
+\thispagestyle{firstpage} % Apply first page style after title
+\begin{abstract}
+    \noindent Visual cortical prostheses represent a revolutionary technology
+    within the field of neuro\-prosthetics, aimed at restoring vision for
+    individuals with visual impairments through direct neural interfaces. This
+    proposal... ABSTRACT WORK IN PROGRESS!!!
+\end{abstract}
+\textbf{Keywords:} Visual cortical prostheses, neuroprosthetics, artificial intelligence, phosphene patterns, real-time image processing
+\vspace{1cm}
+
+% Ensure first page style is applied until the first page is full
+\thispagestyle{firstpage}
+\section*{Introduction}\label{sec:intro}
+
+\pagestyle{rest} % Apply rest page style from here
+
+\printbibliography%
+
+\end{document}

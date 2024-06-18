@@ -1,0 +1,37 @@
+# LaTeX build files
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+#*.pdf
+
+# LaTeX intermediate files
+*.fdb_latexmk
+*.fls
+*.synctex(busy)
+*.bcf
+*.run.xml
+
+# LaTeX editor files
+*.swp
+*.bak
+*.dvi
+*.ps
+*.bbl
+*.blg
+
+# LaTeX generated directories
+_build/
+dist/
+
+# vscode settings
+.vscode/
+.cspell/
+*-workspace
+
+# Other files
+*.py
+
+# folder(s)
+#/images*
