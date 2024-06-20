@@ -175,8 +175,8 @@ system. In the past decade, significant attempts have already been made in early
 systems that focus on retinal and optic nerve implants, such as the exemplary
 FDA-approved ARGUSII retinal system by Second Sight
 Medical~\parencite{hoLongTermResultsEpiretinal2015}. However, these systems do
-not provide a solution for individuals who have damage to structures upstream in
-the visual pathway.
+not provide a solution for individuals who have damage to structures such as the
+retina or optic nerve in the visual pathway.
 
 Visual cortical prostheses provide a novel approach to stimulating the brain by
 interface directly with the brain's visual
@@ -195,17 +195,22 @@ of a user's surroundings, artificial intelligence (AI) can be leveraged in the
 form of deep learning algorithms. Algorithms such as Convolutional Neural
 Networks (CNNs) have already been proven to be effective for image processing of
 static objects in recent work
-by~\textcite{deruytervansteveninckEndtoendOptimizationProsthetic2022}.
+by~\textcite{deruytervansteveninckEndtoendOptimizationProsthetic2022}. Deep
+learning models like CNNs provide a solution to low sampling resolution of
+complex visual stimuli, enabling the generation of more detailed and accurate
+reconstruction of the visual scene.
 
-The phosphene simulator described in the article is implemented in Python,
-utilizing the PyTorch deep learning library for its computational capabilities.
-It operates by translating electrical stimulation parameters into an estimated
-phosphene perception, taking into account the history of stimulation to ensure
-accuracy. The simulator initializes with electrode locations on a flattened
-cortical map of the primary visual cortex (V1), using the reverse wedge-dipole
-visuotopic model to map these locations to the user's visual field. This model
-accounts for the eccentricity and azimuth in the visual field, controlling
-various parameters to ensure realistic proportions in cortical distance.
+The phosphene simulator described in the article
+by~\textcite{deruytervansteveninckEndtoendOptimizationProsthetic2022} was
+implemented in Python, utilizing the PyTorch deep learning library for its
+computational capabilities. It operates by translating electrical stimulation
+parameters into an estimated phosphene perception, taking into account the
+history of stimulation to ensure accuracy. The simulator initializes with
+electrode locations on a flattened cortical map of the primary visual cortex
+(V1), using the reverse wedge-dipole visuotopic model to map these locations to
+the user's visual field. This model accounts for the eccentricity and azimuth in
+the visual field, controlling various parameters to ensure realistic proportions
+in cortical distance.
 
 To determine the size of the phosphenes, the simulator uses models that estimate
 current spread from the electrodes, incorporating factors like stimulation
@@ -237,6 +242,17 @@ vision. It enables the simulator to adapt to complex visual stimuli and optimize
 the information encoded in the phosphenes, making the simulated vision more
 useful for real-life applications.
 
+\todo[inline]{add more information on why simulator and VR instead of implants?}
+
+However, the current simulator is limited to static images due to scene
+simplification and limited textures on object. The simulator also does not account for the temporal dynamics of real-world
+environments. Furthermore, the resolutions of phosphenes are still limited even
+under constant light intensity, which is much more varied in real scenario's. To
+address this issue, new models must be developed that can process video streams
+and generate appropriate stimulation patterns in real-time. Different models for
+image pre-processing of different situations should be able to adapt to changes
+in the visual scene, ensuring that the user receives accurate and up-to-date
+information about their surroundings.
 
 \pagestyle{rest} % Apply rest page style from here
 
