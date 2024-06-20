@@ -166,36 +166,88 @@
 % Ensure first page style is applied until the first page is full
 \thispagestyle{firstpage}
 \section*{Introduction}\label{sec:intro}
-Visual cortical prostheses represent a revolutionary technology within the field
-of neuroprosthetics, aimed at restoring vision for individuals with visual
-impairments through direct neural interfaces. These devices function by
-converting external visual information into neural signals that the brain can
-interpret, thereby bypassing damaged visual pathways. A key component of these
-prostheses is the generation of phosphenes—perceived spots of light produced by
-electrical stimulation of the visual cortex. The challenge lies in organizing
-these phosphenes into coherent visual patterns that the brain can understand.
-The development and optimization of visual cortical prostheses necessitate a
-multidisciplinary approach, combining insights from neuroscience, biomedical
-engineering, and artificial intelligence (AI).
+Globally, blindness affects millions of people, with estimates rising from over
+30 million in 2013 to 43.3 million in
+2020~\parencite{stevensGlobalPrevalenceVision2013,bourneTrendsPrevalenceBlindness2021}.
+For certain types of blindness, visual prosthetics present a promising avenue
+for restoring rudimentary vision through electrical stimulation of the visual
+system. In the past decade, significant attempts have already been made in early
+systems that focus on retinal and optic nerve implants, such as the exemplary
+FDA-approved ARGUSII retinal system by Second Sight
+Medical~\parencite{hoLongTermResultsEpiretinal2015}. However, these systems do
+not provide a solution for individuals who have damage to structures upstream in
+the visual pathway.
 
-In the past 10 years there have been significant advancements that have
-contributed to the development of complex visual prosthetic devices, starting
-with retinal and optic nerve implants, moving towards direct neural interfacing
-in the visual
+Visual cortical prostheses provide a novel approach to stimulating the brain by
+interface directly with the brain's visual
 cortex~\parencite{deruytervansteveninckRealworldIndoorMobility2022}.
+These devices convert visual information from the environment into neural
+signals that can be processed by the brain.
 
-\todo[inline]{Add more background information on what has lead to these devices, how they work and how AI can be leveraged.}
+The core technology involves the generation of phosphenes—perceived spots of
+light resulting from electrical stimulation of the visual
+cortex~\parencite{vandergrintenBiologicallyPlausiblePhosphene2024}. However,
+organizing these phosphenes into coherent and interpretable visual patterns
+remains a significant challenge.
+
+In order to optimize these phosphene patterns for more accurate representations
+of a user's surroundings, artificial intelligence (AI) can be leveraged in the
+form of deep learning algorithms. Algorithms such as Convolutional Neural
+Networks (CNNs) have already been proven to be effective for image processing of
+static objects in recent work
+by~\textcite{deruytervansteveninckEndtoendOptimizationProsthetic2022}.
+
+The phosphene simulator described in the article is implemented in Python,
+utilizing the PyTorch deep learning library for its computational capabilities.
+It operates by translating electrical stimulation parameters into an estimated
+phosphene perception, taking into account the history of stimulation to ensure
+accuracy. The simulator initializes with electrode locations on a flattened
+cortical map of the primary visual cortex (V1), using the reverse wedge-dipole
+visuotopic model to map these locations to the user's visual field. This model
+accounts for the eccentricity and azimuth in the visual field, controlling
+various parameters to ensure realistic proportions in cortical distance.
+
+To determine the size of the phosphenes, the simulator uses models that estimate
+current spread from the electrodes, incorporating factors like stimulation
+current and cortical magnification. The appearance and brightness of phosphenes
+are modeled with a sigmoidal activation function, taking into account the
+activation threshold, which introduces variability between electrodes. Temporal
+dynamics are managed through a memory trace that adjusts phosphene brightness
+based on stimulation history, incorporating decay and input effects to simulate
+accommodation. Each frame, the simulator processes stimulation parameters,
+estimates phosphene characteristics, and renders these effects on a visual field
+map, summing them to produce the final simulated prosthetic percept. This
+biologically grounded model aims to enhance the realism and efficacy of
+simulated prosthetic vision, facilitating the optimization of cortical visual
+prosthetic systems.
+
+Deep learning can enhance these simulators by integrating them into end-to-end
+optimization pipelines. In such systems, a CNN can be used to process input
+images or video frames and generate appropriate electrical stimulation
+parameters. The simulator then creates a visual representation based on these
+parameters, which another CNN evaluates by attempting to reconstruct the
+original input image. The entire system is trained through backpropagation,
+where the error in the reconstructed image is used to update the parameters of
+the networks, optimizing the stimulation parameters for better visual
+perception.
+
+This deep learning approach allows for the dynamic optimization of stimulation
+patterns, potentially improving the quality and functionality of prosthetic
+vision. It enables the simulator to adapt to complex visual stimuli and optimize
+the information encoded in the phosphenes, making the simulated vision more
+useful for real-life applications.
+
 
 \pagestyle{rest} % Apply rest page style from here
 
 \section*{Research}\label{sec:research}
 \subsection*{Objective}\label{subsec:objective}
-This study aims to develop a novel approach to generating phosphene patterns
-in a way that dynamics environments can be visualized in real-time. These
+This study aims to develop a novel approach to generating phosphene patterns in
+a way that dynamics environments can be visualized in real-time. These dynamic
 systems as of yet, do not exist and are crucial for the development of visual
 aid systems that can adapt to more complex and real-world scenarios. If
-successful, these improved prosthetic systems hold potential of increasing
-the blind user's experience dramatically.
+successful, these improved prosthetic systems hold potential of increasing the
+blind user's experience dramatically.
 
 \subsection*{Approach}\label{subsec:approach}
 Explain the experiments and why they are important. Concretely explain how they
