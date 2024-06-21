@@ -178,6 +178,8 @@ Medical~\parencite{hoLongTermResultsEpiretinal2015}. However, these systems do
 not provide a solution for individuals who have damage to structures such as the
 retina or optic nerve in the visual pathway.
 
+\todo[inline]{Add an overview figure of the visual pathway and where the implants are placed or perhaps of the phasic approach of the experiments.}
+
 Visual cortical prostheses provide a novel approach to stimulating the brain by
 interface directly with the brain's visual
 cortex~\parencite{deruytervansteveninckRealworldIndoorMobility2022}.
@@ -208,9 +210,9 @@ parameters into an estimated phosphene perception, taking into account the
 history of stimulation to ensure accuracy. The simulator initializes with
 electrode locations on a flattened cortical map of the primary visual cortex
 (V1), using the reverse wedge-dipole visuotopic model to map these locations to
-the user's visual field. This model accounts for the eccentricity and azimuth in
-the visual field, controlling various parameters to ensure realistic proportions
-in cortical distance.
+the user's visual field~\parencite{liWearableComputerVision2013}. This model
+accounts for the eccentricity and azimuth in the visual field, controlling
+various parameters to ensure realistic proportions in cortical distance.
 
 To determine the size of the phosphenes, the simulator uses models that estimate
 current spread from the electrodes, incorporating factors like stimulation
@@ -225,6 +227,8 @@ map, summing them to produce the final simulated prosthetic percept. This
 biologically grounded model aims to enhance the realism and efficacy of
 simulated prosthetic vision, facilitating the optimization of cortical visual
 prosthetic systems.
+
+\todo[inline]{Maybe add the SPV framework image.}
 
 Deep learning can enhance these simulators by integrating them into end-to-end
 optimization pipelines. In such systems, a CNN can be used to process input
@@ -265,28 +269,145 @@ aid systems that can adapt to more complex and real-world scenarios. If
 successful, these improved prosthetic systems hold potential of increasing the
 blind user's experience dramatically.
 
-\subsection*{Approach}\label{subsec:approach}
-Explain the experiments and why they are important. Concretely explain how they
-will be performed.
+To advance the development of visual cortical prostheses, the first step
+involves creating and testing initial AI algorithms aimed at simplifying scenes
+and generating phosphene patterns. This will include leveraging deep learning
+techniques, such as Convolutional Neural Networks (CNNs), to process complex
+visual inputs and translate them into simplified phosphene representations.
+These algorithms will focus on maintaining essential visual information while
+reducing complexity to ensure that the generated phosphene patterns are
+interpretable and useful for the user.
 
-\todo[inline]{Explain the three phases of the study.}
+Simultaneously, the experimental infrastructure will be established to support
+this research. This infrastructure will encompass the necessary hardware and
+software setups, including high-performance computing systems equipped with GPUs
+for running deep learning models and the phosphene simulator. Additionally, a
+controlled environment for conducting experiments with both simulated and real
+participants will be developed, ensuring accurate data collection and analysis.
+This foundational setup will enable rigorous testing and refinement of the AI
+algorithms, facilitating the progression toward functional and practical visual
+prosthetic systems.
+
+\subsection*{Approach}\label{subsec:approach}
+\todo[inline]{Be more concrete and add references to valid techniques where necessary.}
+\subsubsection*{Phase 1: AI Algorithm Development and Initial Testing}
+In the initial phase of this research, the primary objectives are to develop and
+test AI algorithms designed for scene simplification and phosphene pattern
+generation, as well as to establish the experimental infrastructure necessary
+for subsequent studies. To achieve these goals, a diverse group of 20
+participants, all without visual impairments, will be recruited to participate
+in a series of experiments. These participants will navigate indoor courses of
+varying complexity and dynamic elements while wearing VR headsets integrated
+with an adaptive scene simplification system. The experiments will be conducted
+under three distinct conditions: a fixed scene simplification as the baseline,
+an adaptive scene simplification utilizing the newly developed AI algorithm, and
+an adaptive scene simplification with multi-modal feedback that includes both
+haptic and auditory cues. Throughout these trials, data will be collected on
+trial duration, the number of collisions, subjective difficulty ratings, and
+qualitative feedback from participants. This phase aims to refine the initial AI
+models and ensure that the experimental setup is capable of providing reliable
+and accurate data, thus laying a solid foundation for the subsequent phases of
+the research.
+
+\subsubsection*{Phase 2: Advanced AI and Neurophysiological Studies}
+The second phase of the research focuses on implementing and testing advanced AI
+algorithms alongside conducting neurophysiological studies to assess their
+impact on visual perception. This phase involves developing more sophisticated
+AI models, including Convolutional Neural Networks (CNNs), Generative
+Adversarial Networks (GANs), and Reinforcement Learning (RL) algorithms, with an
+emphasis on integrating edge computing for real-time processing. The
+neurophysiological component of this phase will utilize Visual Evoked Potentials
+(VEP) and functional Magnetic Resonance Imaging (fMRI) to study the effects of
+the adaptive systems on visual perception. Participants will engage in tasks
+such as navigation, object recognition, and reading, with performance metrics
+including accuracy, response time, error rate, and trial duration, in addition
+to neurophysiological data. By correlating these metrics with neurophysiological
+responses, this phase aims to provide a deeper understanding of how advanced
+AI-driven systems influence visual processing, thereby guiding further
+refinements and improvements.
+
+\subsubsection*{Phase 3: Full-scale Experiments and Final Analysis}
+The final phase of the research involves conducting extensive behavioral and
+neurophysiological experiments with larger participant groups to validate the
+effectiveness and reliability of the developed AI systems. This phase will
+encompass a comprehensive set of behavioral experiments designed to collect
+extensive performance data from a larger cohort, thereby enabling a robust
+evaluation of the system's efficacy in diverse real-world scenarios.
+Concurrently, neurophysiological studies will continue with an expanded
+participant group to ensure the generalizability of the findings. Detailed
+analysis of patterns and insights derived from the collected data will be
+performed to fine-tune the AI models and validate the improvements made
+throughout the research. The ultimate aim of this phase is to ensure that the
+AI-driven visual prosthetic system is ready for real-world application,
+significantly enhancing the visual experiences of users with visual impairments
+and contributing valuable knowledge to the field of neuroprosthetics.
 
 \section*{Innovation}\label{sec:innovation}
-Explain how the research is innovative and how it will contribute to the field.
-Briefly go over the cutting-edge technology involved in the study. Maybe go
-over the caveats and limitations of previous work and how this study will find
-solutions.
+\subsection*{AI-Enhanced Visual Prostheses}
+The proposed research is pioneering in its integration of advanced artificial intelligence (AI) and virtual reality (VR) to develop and enhance visual prostheses. This innovative approach leverages state-of-the-art deep learning algorithms, such as Convolutional Neural Networks (CNNs), Generative Adversarial Networks (GANs), and Reinforcement Learning (RL), to process complex visual inputs and generate simplified phosphene patterns that are interpretable and useful for users. By embedding these AI algorithms within a VR environment, the system can dynamically adapt to changes in the visual scene, thereby providing real-time scene simplification and improving the responsiveness of the prosthetic device. This integration is expected to significantly enhance the user experience, offering more accurate and detailed visual representations that are crucial for navigating dynamic and complex environments. The incorporation of multi-modal feedback, including haptic and auditory cues, further enhances the system's ability to provide comprehensive sensory information, thus creating a more immersive and effective visual aid.
+
+\subsection*{Real-world Applications}
+The potential real-world applications of this research are profound,
+particularly in terms of improving the quality of life for individuals with
+severe visual impairments. By enabling these individuals to perceive their
+surroundings more clearly and respond more effectively to dynamic changes, the
+developed system can facilitate greater independence and confidence in daily
+activities. The anticipated improvements in scene simplification and
+responsiveness are not only expected to enhance basic navigation and object
+recognition but also to support more complex tasks such as reading and social
+interactions. Beyond the immediate benefits to end-users, this research has
+broader implications for the field of neuroprosthetics and adaptive technology.
+It demonstrates the feasibility and advantages of integrating AI and VR to
+create more sophisticated and adaptive prosthetic devices, setting a new
+standard for future developments. Moreover, the insights gained from this
+research could inform the design and implementation of other types of neural
+interfaces, potentially leading to advancements in treating various neurological
+conditions and enhancing sensory augmentation devices. This project stands at
+the forefront of a transformative shift in how technology can be harnessed to
+improve human capabilities and overall well-being.
+\todo[inline]{Maybe add some information on potential clinical applications.}
 
 \section*{Future Impact}\label{sec:impact}
-Explain the main goal of the study and why future research will be beneficial.
+\subsection*{Contribution to the Field}
+This research is poised to make significant contributions to the field of visual
+cortical prostheses by advancing the integration of artificial intelligence (AI)
+and virtual reality (VR) systems in developing adaptive visual aids. The
+innovative AI algorithms and real-time processing capabilities proposed in this
+study are expected to enhance the functionality and usability of visual
+prostheses, offering more accurate and dynamic visual representations for users.
+These advancements will address current limitations in phosphene resolution and
+scene simplification, potentially transforming how visual information is
+processed and perceived by individuals with visual impairments. Moreover, the
+successful implementation of these technological advancements could pave the way
+for future research and development in related areas, such as the optimization
+of other neural interfaces and sensory augmentation devices. The insights gained
+from this study will provide a valuable foundation for further exploration into
+AI-enhanced neuroprosthetics, encouraging ongoing innovation and improvement in
+this critical field.
+
+\subsection*{Call to Action}
+The importance of continued interdisciplinary research cannot be overstated in
+the quest to advance visual prosthesis technology. This proposal underscores the
+need for collaboration between neuroscience, engineering, and AI to fully
+realize the potential of these groundbreaking elements in technological
+possibility. By fostering partnerships across these disciplines, we can
+accelerate the development of more effective and sophisticated visual aids,
+ultimately improving the quality of life for individuals with severe visual
+impairments. We encourage researchers, practitioners, and stakeholders in these
+fields to work together, share knowledge, and contribute to the collective
+effort to enhance neuroprosthetic devices. The future of visual cortical
+prostheses depends on our ability to integrate diverse expertise and innovate at
+the intersection of these dynamic and rapidly evolving fields.
 
 \section*{Timetable}\label{sec:timetable}
 The Gannt-chart goes here with a brief explanation of the different phases.
-
+\todo[inline]{Add a Gannt-chart with the different phases and milestones based on the word document containg the time phases.}
 \printbibliography%
 
 \section*{Rebuttal}\label{sec:rebuttal}
 After the first review of the draft, the proposal was revised to address the
-reviewers' comments. The main changes will be listed below:
+reviewers' comments. The main changes are listed below:
+
+\todo[inline]{Add rebuttal comments here after 1st review.}
 
 \end{document}
