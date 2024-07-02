@@ -156,15 +156,50 @@
 \thispagestyle{firstpage} % Apply first page style after title
 \begin{abstract}
   \noindent Visual cortical prostheses represent a revolutionary technology
-  within the field of neuro\-prosthetics, aimed at restoring vision for
-  individuals with visual impairments through direct neural interfaces. This
-  proposal\ldots ABSTRACT WORK IN PROGRESS!!!
-\end{abstract}
-\textbf{Keywords:} Visual cortical prostheses, neuroprosthetics, artificial intelligence, phosphene patterns, real-time image processing
-\vspace{1cm}
+  within the field of neuroprosthetics, aimed at restoring vision for
+  individuals with visual impairments through direct neural interfaces. Recent
+  advances have focused on retinal and optic nerve implants; however, these do
+  not aid individuals with damage beyond these structures. This proposal
+  explores the use of artificial intelligence (AI) and virtual reality (VR) to
+  optimize visual cortical prostheses by developing AI algorithms that generate
+  and refine phosphene patterns, enabling users to visualize dynamic
+  environments in real-time. Expanding upon existing phosphene simulators that
+  are limited to static images, this research aims to enhance scene
+  simplification and phosphene resolution, improving the quality and accuracy of
+  visual representations.
 
-% Ensure first page style is applied until the first page is full
-\thispagestyle{firstpage}
+  The research is divided into three phases. The first phase involves developing
+  initial AI algorithms for scene simplification and phosphene generation using
+  Convolutional Neural Networks (CNNs), alongside setting up the experimental
+  infrastructure. A diverse group of 20 participants will navigate VR
+  environments to collect data on the effectiveness of these algorithms. The
+  second phase advances AI models using CNNs, Generative Adversarial Networks
+  (GANs), and Reinforcement Learning (RL), coupled with neurophysiological
+  studies such as Visual Evoked Potentials (VEP) and fNIRS to assess the impact
+  on visual perception. The final phase conducts extensive experiments with a
+  larger participant group to validate the AI systems, aiming for real-world
+  application readiness.
+
+  This study aims to significantly enhance the user experience of visual
+  prosthetics, potentially transforming the field by enabling accurate, dynamic
+  visual representations. If successful, it will pave the way for advanced
+  neural interfaces and sensory augmentation devices, improving the quality of
+  life for individuals with visual impairments. The research highlights the
+  importance of interdisciplinary collaboration in advancing neuroprosthetic
+  technology, urging continued innovation at the intersection of neuroscience,
+  engineering, and AI.\@
+\end{abstract}
+\textbf{Keywords:} Simulated  phosphene vision, neuroprosthetics, deep learning models, phosphene patterns, real-time image processing
+
+\pagestyle{rest} % Apply rest page style from here
+\clearpage % Ensure a new page for the figure and introduction
+
+\begin{figure*}[ht!]
+  \centering
+  \includegraphics[width=1.0\textwidth]{imgs/SPV_VCP_pipeline.png}
+  \caption{| Graphical abstract illustrating the three phases of the research proposal on simulated phosphene vision for visual cortical prostheses: (1) Developing initial AI algorithms for scene simplification and phosphene generation; (2) Advancing AI models with neurophysiological assessments; (3) Conducting extensive experiments for real-world application validation. (Image: BioRender, \href{https://app.biorender.com/}{https://app.biorender.com/}, accessed on 2 July 2024).}\label{fig:graphical_abstract}
+\end{figure*}
+
 \section*{Introduction}\label{sec:intro}
 Globally, blindness affects millions of people, with estimates rising from over
 30 million in 2013 to 43.3 million in
@@ -177,8 +212,6 @@ FDA-approved ARGUSII retinal system by Second Sight
 Medical~\parencite{hoLongTermResultsEpiretinal2015}. However, these systems do
 not provide a solution for individuals who have damage to structures such as the
 retina or optic nerve in the visual pathway.
-
-\todo[inline]{Add an overview figure of the visual pathway and where the implants are placed or perhaps of the phasic approach of the experiments.}
 
 Visual cortical prostheses provide a novel approach to stimulating the brain by
 interface directly with the brain's visual
@@ -226,27 +259,49 @@ estimates phosphene characteristics, and renders these effects on a visual field
 map, summing them to produce the final simulated prosthetic percept. This
 biologically grounded model aims to enhance the realism and efficacy of
 simulated prosthetic vision, facilitating the optimization of cortical visual
-prosthetic systems.
+prosthetic systems. An example of such a framework is shown in Figure~\ref{fig:simulator_framework}.
 
-\todo[inline]{Maybe add the SPV framework image.}
+\begin{figure*}[ht!]
+  \centering
+  \includegraphics[width=0.6\textwidth]{imgs/block_diagram_vis_prost.png}
+  \caption{| Overview of a Visual Prosthesis Simulation Framework. The
+    simulator is initialized with electrode locations on a visuotopic
+    map of the visual cortex (V1), representing the spatial organization
+    of the visual field. For each frame, it processes stimulation
+    parameters such as amplitude, pulse width, and frequency for each
+    electrode. Using these parameters and electrode locations, it
+    estimates phosphene characteristics, which are rendered on a visual
+    field map considering cortical magnification and activation
+    thresholds. Individual phosphene renderings are summed to produce
+    the simulated prosthetic percept. Temporal dynamics, including
+    delayed onset and offset of perception, are modeled using a leaky
+    integrator. The simulator's modular and open-source design,
+    implemented in Python with PyTorch for example, allows for fast GPU
+    computations and easy integration with external
+    software~\parencite{deruytervansteveninckEndtoendOptimizationProsthetic2022}.
+    It is validated through computational and behavioral experiments,
+    incorporating neurophysiological and clinical findings to ensure
+    biological plausibility.}\label{fig:simulator_framework}
+\end{figure*}
 
 Deep learning can enhance these simulators by integrating them into end-to-end
-optimization pipelines. In such systems, a CNN can be used to process input
-images or video frames and generate appropriate electrical stimulation
-parameters. The simulator then creates a visual representation based on these
-parameters, which another CNN evaluates by attempting to reconstruct the
-original input image. The entire system is trained through backpropagation,
-where the error in the reconstructed image is used to update the parameters of
-the networks, optimizing the stimulation parameters for better visual
-perception.
+optimization pipelines. In such systems, a Convolutional Neural Networks (CNN)
+can be used to process input images or video frames and generate appropriate
+electrical stimulation parameters. The simulator then creates a visual
+representation based on these parameters, which another CNN evaluates by
+attempting to reconstruct the original input image. The entire system is trained
+through backpropagation, where the error in the reconstructed image is used to
+update the parameters of the networks, optimizing the stimulation parameters for
+better visual perception.
 
 This deep learning approach allows for the dynamic optimization of stimulation
 patterns, potentially improving the quality and functionality of prosthetic
 vision. It enables the simulator to adapt to complex visual stimuli and optimize
 the information encoded in the phosphenes, making the simulated vision more
-useful for real-life applications.
-
-\todo[inline]{add more information on why simulator and VR instead of implants?}
+useful for real-life applications. As this technology is rather experimental
+still, most of the research is still being done in controlled environments with
+virtual reality headsets that are able to adequately simulate phosphene vision
+for testing.
 
 However, the current simulator is limited to static images due to scene
 simplification and limited textures on object. The simulator also does not account for the temporal dynamics of real-world
@@ -257,8 +312,6 @@ and generate appropriate stimulation patterns in real-time. Different models for
 image pre-processing of different situations should be able to adapt to changes
 in the visual scene, ensuring that the user receives accurate and up-to-date
 information about their surroundings.
-
-\pagestyle{rest} % Apply rest page style from here
 
 \section*{Research}\label{sec:research}
 \subsection*{Objective}\label{subsec:objective}
@@ -317,7 +370,7 @@ AI models, including Convolutional Neural Networks (CNNs), Generative
 Adversarial Networks (GANs), and Reinforcement Learning (RL) algorithms, with an
 emphasis on integrating edge computing for real-time processing. The
 neurophysiological component of this phase will utilize Visual Evoked Potentials
-(VEP) and functional Magnetic Resonance Imaging (fMRI) to study the effects of
+(VEP) and functional near-infrared spectroscopy (fNIRS) to study the effects of
 the adaptive systems on visual perception. Participants will engage in tasks
 such as navigation, object recognition, and reading, with performance metrics
 including accuracy, response time, error rate, and trial duration, in addition
