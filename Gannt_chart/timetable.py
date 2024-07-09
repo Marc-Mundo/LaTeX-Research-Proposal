@@ -2,6 +2,7 @@ import os
 import matplotlib.pyplot as plt
 from matplotlib import rcParams
 from matplotlib.font_manager import FontProperties
+import textwrap
 
 tasks = {
     "Year 1: Preparation and Initial Research": [
@@ -169,9 +170,9 @@ helvetica_path = r"C:\USERS\MARC_\APPDATA\LOCAL\MICROSOFT\WINDOWS\FONTS\HELVETIC
 font_helvetica = FontProperties(fname=helvetica_path)
 rcParams["font.family"] = font_helvetica.get_name()
 
-# Colors for each year
+# Colors for each phase
 colors = ["#d3d3d3", "#87CEFA", "#90EE90", "#FFB6C1"]
-year_labels = ["Year 1", "Year 2", "Year 3", "Year 4"]
+phase_labels = ["Phase 1", "Phase 2", "Phase 3", "Phase 4"]
 
 fig, ax = plt.subplots(figsize=(16, 10))
 
@@ -190,21 +191,25 @@ for i, (year, activities) in enumerate(tasks.items()):
             edgecolor="none",
         )
         yticks.append(i * 10 + j * 2 + 0.75)
-        yticklabels.append(activity_name)
+        wrapped_label = "\n".join(textwrap.wrap(activity_name, width=40))
+        yticklabels.append(wrapped_label)
 
-# Add legend for the years using proxy artists
+# Add vertical lines for year cutoffs
+for i in range(1, len(phase_labels)):
+    ax.axvline(x=i * 12, color="black", linestyle="-", linewidth=1)
+
+# Add legend for the phases using proxy artists
 legend_handles = [
-    plt.Line2D([0], [0], color=colors[i], lw=4, label=year)
-    for i, year in enumerate(year_labels)
+    plt.Line2D([0], [0], color=colors[i], lw=4, label=phase)
+    for i, phase in enumerate(phase_labels)
 ]
-ax.legend(handles=legend_handles, loc="lower right", frameon=False)
-
+ax.legend(handles=legend_handles, loc="lower right", frameon=False, fontsize=14)
 # Set labels and ticks
 ax.set_xlabel("Months", fontsize=14, fontweight="bold", fontproperties=font_helvetica)
 ax.set_xticks(range(1, 49))  # Set x-ticks from 1 to 48
 ax.set_xlim(1, 48)  # Set the x-axis limit to ensure it covers 1 to 48
 ax.set_yticks(yticks)
-ax.set_yticklabels(yticklabels, fontsize=12, fontproperties=font_helvetica)
+ax.set_yticklabels(yticklabels, fontsize=14, fontproperties=font_helvetica)
 ax.grid(True, linestyle="--", alpha=0.6)
 ax.spines["top"].set_visible(False)
 ax.spines["right"].set_visible(False)
