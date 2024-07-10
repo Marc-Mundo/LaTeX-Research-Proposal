@@ -211,14 +211,14 @@ For certain types of blindness, visual prosthetics present a promising avenue
 for restoring rudimentary vision through electrical stimulation of the visual
 system. In the past decade, significant attempts have already been made in early
 systems that focus on retinal and optic nerve implants, such as the exemplary
-FDA-approved ARGUSII retinal system by Second Sight
+FDA-approved ARGUS-II retinal system by Second Sight
 Medical~\parencite{hoLongTermResultsEpiretinal2015}. However, these systems do
 not provide a solution for individuals who have damage to structures such as the
 retina or optic nerve in the visual pathway.
 
 Visual cortical prostheses provide a novel approach to stimulating the brain by
 interface directly with the brain's visual
-cortex~\parencite{deruytervansteveninckRealworldIndoorMobility2022}.
+cortex (Figure~\ref{fig:schematic}).
 These devices convert visual information from the environment into neural
 signals that can be processed by the brain.
 
@@ -227,6 +227,22 @@ light resulting from electrical stimulation of the visual
 cortex~\parencite{vandergrintenBiologicallyPlausiblePhosphene2024}. However,
 organizing these phosphenes into coherent and interpretable visual patterns
 remains a significant challenge.
+
+\begin{figure*}[ht!]
+  \centering
+  \includegraphics[width=0.7\textwidth]{imgs/visual_cortical_prothesis.png}
+  \caption{| Functional schematic representation of a visual cortical
+    prosthesis. The visual environment is recorded by a wearable camera
+    and sent to a (wireless) mobile computer. Electrodes within a brain
+    implant are then selectively activated to stimulate neurons in the
+    primary visual cortex (V1). By leveraging the retinotopic
+    organization of V1, a precise pattern of phosphenes is created,
+    forming a coherent representation of the visual
+    scene~\parencite{chenShapePerceptionHighchannelcount2020}. (Image:
+    BioRender,
+    \href{https://app.biorender.com/}{https://app.biorender.com/},
+    accessed on 27 May 2024).}\label{fig:schematic}
+\end{figure*}
 
 In order to optimize these phosphene patterns for more accurate representations
 of a user's surroundings, artificial intelligence (AI) can be leveraged in the
@@ -308,7 +324,13 @@ virtual reality headsets that are able to adequately simulate phosphene vision
 for testing.
 
 \subsection*{Current Limitations}\label{subsec:limitations}
-The current simulator is limited to static images due to scene simplification and limited textures on objects. Additionally, the simulator does not account for the temporal dynamics of real-world environments. Furthermore, the resolution of phosphenes remains constrained even under constant light intensity, which is much more varied in real scenarios. Organizing phosphenes into coherent visual patterns that can adapt to dynamic environments remains a significant challenge.
+The current simulator is limited to static images due to drastic scene
+simplification and limited textures on objects. Additionally, the simulator does
+not account for the temporal dynamics of real-world environment such as movement
+speed. Furthermore, the resolution of phosphenes remains constrained even under
+constant light intensity, which is much more varied in real scenarios.
+Organizing phosphenes into coherent visual patterns that can adapt to dynamic
+environments remains a significant challenge.
 
 \subsection*{Proposed Solutions}\label{subsec:solutions}
 To address these issues, new models must be developed that can process video
@@ -341,7 +363,7 @@ such as moving objects or changing lighting conditions. These limitations hinder
 usability and real-world applicability. Improving these aspects is essential for
 the development of visual aid devices that can adapt to more complex and
 real-world scenarios. If successful, these improved prosthetic systems hold the
-potential of increasing the blind user's experience dramatically.
+potential of improving the blind user's experience dramatically.
 
 To advance the development of visual cortical prostheses, the first step
 involves creating and testing initial AI algorithms aimed at simplifying scenes
@@ -457,19 +479,25 @@ the impact of the adaptive systems on visual perception. The obstacle course
 will be modified based on the feedback and performance of the participants and
 can be seen in Figure~\ref{fig:obstacle_course}.
 
-The neurophysiological component of this phase will utilize Visual Evoked
-Potentials (VEP) and functional near-infrared spectroscopy (fNIRS) to study the
-effects of the adaptive systems on visual
+The neurophysiological component of this phase will utilize (non-invasive)
+Visual Evoked Potentials (VEP) and functional near-infrared spectroscopy (fNIRS)
+to study the effects of the adaptive systems on visual
 perception~\parencite{martinez-cagigalBrainComputerInterfaces2021,klistornerAnalysisMultifocalVisual2022,chenNeuralCorrelatesObstacle2017}.
-This data will be used to measure the brain's response to different visual
+These devices can be utilized in combination with the VR-setup. VEP data
+includes response latency and amplitude of VEPs, spatial distribution, frequency
+response, as well as changes in VEP wave patterns (P100, response 100 ms
+post-stimulus). The fNIRS data includes hemodynamic responses, which allow for
+identification of spatial and temporal activation of the visual cortex. Both
+types of data will be used to measure the brain's response to different visual
 stimuli and adaptive algorithms, providing insights into the effectiveness and
-efficiency of the AI models. Participants, including both control and
-vision-impaired groups, will engage in tasks such as navigation, object
-recognition, and reading, with performance metrics including accuracy, response
-time, error rate, and trial duration, in addition to neurophysiological data. By
-correlating these metrics with neurophysiological responses, this phase aims to
-provide a deeper understanding of how advanced AI-driven systems influence
-visual processing, thereby guiding further refinements and improvements.
+efficiency of the AI models as well as insights into plasticity and adaptation.
+Participants, including both control and vision-impaired groups, will engage in
+tasks such as navigation, object recognition, and reading, with performance
+metrics including accuracy, response time, error rate, and trial duration, in
+addition to neurophysiological data. By correlating these metrics with
+neurophysiological responses, this phase aims to provide a deeper understanding
+of how advanced AI-driven systems influence visual processing, thereby guiding
+further refinements and improvements.
 
 \subsubsection*{Justification of Phase 2}
 Phase 2 is crucial for advancing the AI models developed in Phase 1 by testing
@@ -572,25 +600,28 @@ understanding, the AI algorithms can generate more coherent and detailed visual
 representations for users. The use of feedback systems based on human behavior
 is crucial in this context. By analyzing behavioral responses to visual stimuli,
 the AI models can be iteratively improved to better align with the perceptual
-and cognitive processes of users.
+and cognitive processes of users. Simultaneously, the development of these
+protheses can provide valuable insights into the human visual system and how it
+can adapt to digital augmentation.
 
-Feedback systems enable real-time adjustments to the AI algorithms based on user
-interactions and performance metrics. For example, if a user consistently
-struggles with recognizing certain objects or navigating through specific
-environments, the AI can adapt its processing strategies to enhance the clarity
-and relevance of the visual information provided. This dynamic adaptation is
-essential for creating a more intuitive and effective user experience.
+Feedback systems like RL, enable real-time adjustments to the AI algorithms
+based on user interactions and performance metrics. For example, if a user
+consistently struggles with recognizing certain objects or navigating through
+specific environments, the AI can adapt its processing strategies to enhance the
+clarity and relevance of the visual information provided. This dynamic
+adaptation is essential for creating a more intuitive and effective user
+experience.
 
 \subsection*{Call to Action}
 The importance of continued interdisciplinary research cannot be overstated in
 the quest to advance visual prosthesis technology. This proposal underscores the
 need for collaboration between neuroscience, engineering, and AI to fully
-realize the potential of these groundbreaking elements in technological
-possibility. By fostering partnerships across these disciplines, we can
-accelerate the development of more effective and sophisticated visual aids,
-ultimately improving the quality of life for individuals with severe visual
-impairments. We encourage researchers, practitioners, and stakeholders in these
-fields to work together, share knowledge, and contribute to the collective
+realize the potential of these groundbreaking elements in cutting-edge
+technological possibility. By fostering partnerships across these disciplines,
+we can accelerate the development of more effective and sophisticated visual
+aids, ultimately improving the quality of life for individuals with severe
+visual impairments. We encourage researchers, practitioners, and stakeholders in
+these fields to work together, share knowledge, and contribute to the collective
 effort to enhance neuroprosthetic devices. The future of visual cortical
 prostheses depends on our ability to integrate diverse expertise and innovate at
 the intersection of these dynamic and rapidly evolving fields.
@@ -601,9 +632,9 @@ the intersection of these dynamic and rapidly evolving fields.
   \includegraphics[width=1.0\textwidth]{imgs/Gannt_chart.png}
   \caption{| Gantt chart illustrating the timeline and key activities for a 4-year research project. The chart is divided into four distinct phases, one for each year. Each phase consists of various activities, which are represented by different colored bars indicating their start and duration in months. Year 1 focuses on preparation and initial research, Year 2 on advanced AI and pilot testing, Year 3 on full-scale experiments and data analysis, and Year 4 on final analysis and thesis writing. The color legend at the bottom right distinguishes between the years.}\label{fig:gannt_chart}
 \end{figure*}
-
+\pagebreak
 \printbibliography%
-
+\pagebreak
 \section*{Rebuttal}\label{sec:rebuttal}
 \noindent \textbf{Reviewer:} dr.\ F.\ Zeldenrust\\
 
@@ -643,7 +674,11 @@ the intersection of these dynamic and rapidly evolving fields.
         \textcolor{blue}{\textit{Response:  I have elaborated on why different algorithms are required in Phase 2 within the text, highlighting the need to address the complex and varied nature of dynamic visual environments using CNNs, GANs, and RL\@. This addition emphasizes the complementary strengths of these algorithms in enhancing the overall system.}}
 
   \item Clarify how neurophysiological data will be utilized.\\
-        \textcolor{blue}{\textit{Response: I have clarified how neurophysiological data will be utilized in the research, emphasizing its role in assessing the impact of the AI-driven systems on visual perception and guiding further refinements}}
+        \textcolor{blue}{\textit{Response: I have clarified how
+            neurophysiological data will be utilized in the research for both types
+            of data measurements, emphasizing
+            their role in assessing the impact of the AI-driven systems on visual
+            perception and guiding further refinements}}
 
   \item For Phase 1, focus on better deep learning implementation, and for Phase 2, describe the VR obstacle course.\\
         \textcolor{blue}{\textit{Response: I have revised the ``Approach'' section to focus on the better implementation of deep learning techniques in Phase 1 and provided a detailed description of the VR obstacle course used in Phase 2.}}
@@ -668,6 +703,16 @@ the intersection of these dynamic and rapidly evolving fields.
 
   \item Include a paragraph on risk assessment and feasibility.\\
         \textcolor{blue}{\textit{Response: I have included a paragraph on risk assessment and feasibility within the ``Approach'' section, following the description of the research phases. This addition addresses potential risks and challenges while highlighting the measures in place to ensure the feasibility and ethical conduct of the study.}}
+\end{itemize}
+
+\subsection*{Other Changes}
+\begin{itemize}
+  \item \textcolor{cyan}{\textit{Added a functional schematic representation of
+            a visual cortical prosthesis in the ``Introduction'' section. I made this
+            figure for my systematic review, but I think it makes the introduction more
+            clear on how the visual percept is formed in context of the Simulated
+            Phosphene Vision framework.}}
+  \item \textcolor{green}{\textit{Final word count: 4997.}}
 \end{itemize}
 
 \end{document}
